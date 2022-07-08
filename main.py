@@ -88,6 +88,7 @@ print(x) """
 """ for x in mycol.find({},{ "address": 0 }):
   print(x) """
 
+# QUERY
 # Find document(s) with the address "Park Lane 38":
 """ myquery = { "address": "Park Lane 38" }
 mydoc = mycol.find(myquery)
@@ -105,6 +106,13 @@ myquery = { "address": { "$regex": "^S" } }
 mydoc = mycol.find(myquery)
 for x in mydoc:
   print(x)
+
+# MONGODB SORT
+# Sort the result alphabetically by name:
+mydoc = mycol.find().sort("name")
+for x in mydoc:
+  print(x)
+
 
 
 
