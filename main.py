@@ -76,8 +76,29 @@ print(x.inserted_ids) """
 """ x = mycol.find_one()
 print(x) """
 
-# FIND ALL
+# Return all documents in the "customers" collection, and print each document:
 """ for x in mycol.find():
   print(x) """
   
-# Return Only Some Fields
+# Return only the names and addresses, not the _ids:
+""" for x in mycol.find({},{ "_id": 0, "name": 1, "address": 1 }):
+  print(x) """
+
+# This example will exclude "address" from the result:
+for x in mycol.find({},{ "address": 0 }):
+  print(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
