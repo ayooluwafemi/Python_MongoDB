@@ -156,9 +156,3 @@ print(x.modified_count, "documents updated.") """
 #print the result:
 for x in myresult:
   print(x) """
-
-
-
-
-
-
