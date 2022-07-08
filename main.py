@@ -102,18 +102,35 @@ for x in mydoc:
   print(x) """
 
 # Find documents where the address starts with the letter "S":
-myquery = { "address": { "$regex": "^S" } }
+""" myquery = { "address": { "$regex": "^S" } }
 mydoc = mycol.find(myquery)
 for x in mydoc:
-  print(x)
+  print(x) """
 
 # MONGODB SORT
 # Sort the result alphabetically by name:
-mydoc = mycol.find().sort("name")
+""" mydoc = mycol.find().sort("name")
 for x in mydoc:
-  print(x)
+  print(x) """
 
+# Sort the result reverse alphabetically by name:
+""" mydoc = mycol.find().sort("name", -1)
+for x in mydoc:
+  print(x) """
 
+# MONGODB DELETE DOCUMENT
+# Delete the document with the address "Mountain 21":
+myquery = { "address": "Mountain 21" }
+mycol.delete_one(myquery)
+
+# Delete all documents were the address starts with the letter S:
+myquery = { "address": {"$regex": "^S"} }
+x = mycol.delete_many(myquery)
+print(x.deleted_count, " documents deleted.")
+
+# Delete all documents in the "customers" collection:
+x = mycol.delete_many({})
+print(x.deleted_count, " documents deleted.")
 
 
 
