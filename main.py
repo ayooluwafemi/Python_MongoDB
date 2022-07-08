@@ -85,13 +85,26 @@ print(x) """
   print(x) """
 
 # This example will exclude "address" from the result:
-for x in mycol.find({},{ "address": 0 }):
+""" for x in mycol.find({},{ "address": 0 }):
+  print(x) """
+
+# Find document(s) with the address "Park Lane 38":
+""" myquery = { "address": "Park Lane 38" }
+mydoc = mycol.find(myquery)
+for x in mydoc:
+  print(x) """
+
+# Find documents where the address starts with the letter "S" or higher:
+""" myquery = { "address": { "$gt": "S" } }
+mydoc = mycol.find(myquery)
+for x in mydoc:
+  print(x) """
+
+# Find documents where the address starts with the letter "S":
+myquery = { "address": { "$regex": "^S" } }
+mydoc = mycol.find(myquery)
+for x in mydoc:
   print(x)
-
-
-
-
-
 
 
 
