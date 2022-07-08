@@ -151,6 +151,11 @@ x = mycol.update_many(myquery, newvalues)
 print(x.modified_count, "documents updated.") """
 
 # MONGODB LIMIT
+# Limit the result to only return 5 documents:
+""" myresult = mycol.find().limit(5)
+#print the result:
+for x in myresult:
+  print(x) """
 
 
 
