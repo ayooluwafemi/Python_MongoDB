@@ -120,18 +120,20 @@ for x in mydoc:
 
 # MONGODB DELETE DOCUMENT
 # Delete the document with the address "Mountain 21":
-myquery = { "address": "Mountain 21" }
-mycol.delete_one(myquery)
+""" myquery = { "address": "Mountain 21" }
+mycol.delete_one(myquery) """
 
 # Delete all documents were the address starts with the letter S:
-myquery = { "address": {"$regex": "^S"} }
+""" myquery = { "address": {"$regex": "^S"} }
 x = mycol.delete_many(myquery)
-print(x.deleted_count, " documents deleted.")
+print(x.deleted_count, " documents deleted.") """
 
 # Delete all documents in the "customers" collection:
-x = mycol.delete_many({})
-print(x.deleted_count, " documents deleted.")
+""" x = mycol.delete_many({})
+print(x.deleted_count, " documents deleted.") """
 
+# MONGODB DROP COLLECTION
+""" mycol.drop() """
 
 
 
